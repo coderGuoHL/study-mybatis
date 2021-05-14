@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射语句 namespace=绑定一个对应的DAO/Mapper-->
+<mapper namespace="com.com.com.guo.dao.UserMapper">
+
+    <!-- sql查询语句   -->
+    <select id="getUserList" resultType="com.com.com.guo.pojo.User">
+        select * from mybatis.user;
+    </select>
+
+
+<!--  insert语句  -->
+    <insert id="insertUser" parameterType="com.com.com.guo.pojo.User">
+        insert into mybatis.user values(#{id}, #{name}, #{pwd})
+    </insert>
+
+
+<!--    update-->
+    <update id="updateUser" parameterType="com.com.com.guo.pojo.User">
+        update mybatis.user set name=#{name}, pwd=#{pwd} where id=#{id}
+    </update>
+
+<!--  deleteUser  -->
+    <delete id="deleteUser" parameterType="int">
+        delete from mybatis.user where id=#{id}
+    </delete>
+</mapper>
